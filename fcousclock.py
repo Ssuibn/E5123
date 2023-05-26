@@ -1,14 +1,14 @@
-import time, os
+import time
 
 def countdown(t):
-    while t > 0:
+    while t:
         mins, secs = divmod(t, 60)
         timer = '{:02d}:{:02d}'.format(mins, secs)
-        print(timer + " remaining.", end="\r")
+        print(timer, end="\r")
         time.sleep(1)
         t -= 1
 
-    print("Time's up!")
-    os.system('afplay /System/Library/Sounds/Ping.aiff')
+    print('专注时间结束！')
 
-countdown(1500) # 1500 seconds = 25 minutes
+t = input("请输入专注时间，单位为分钟：")
+countdown(int(t) * 60)
